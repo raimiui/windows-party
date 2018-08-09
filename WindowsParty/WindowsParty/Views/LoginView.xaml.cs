@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using WindowsParty.ViewModels;
+using Caliburn.Micro;
 
 namespace WindowsParty.Views
 {
@@ -12,19 +14,26 @@ namespace WindowsParty.Views
         public LoginView()
         {
             InitializeComponent();
-            throw new Exception("I'm discontinuing this! Ha ha ha!");
+            //TODO: remove after testing global error handling
+            //throw new Exception("I'm discontinuing this! Ha ha ha!");
         }
 
         private void bg_btn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var serversView = new ServersView();
-            serversView.Width = this.Width;
-            serversView.Height = this.Height;
-            serversView.Top = this.Top;
-            serversView.Left = this.Left;
+            var loginViewModel = (LoginViewModel) DataContext;
 
-            this.Hide();
-            serversView.Show();
+            var serversView = new ServersView
+            {
+                AccessToken = loginViewModel.GetAccessToken(),
+                Width = this.Width,
+                Height = this.Height,
+                Top = this.Top,
+                Left = this.Left
+            };
+
+            (new WindowManager()).ShowWindow(serversView);
+            //this.Hide();
+            //serversView.Show();
         }
     }
 }

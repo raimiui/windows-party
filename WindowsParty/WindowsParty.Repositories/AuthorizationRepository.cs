@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using WindowsParty.IRepositories;
-using Newtonsoft.Json;
 
 namespace WindowsParty.Repositories
 {
@@ -21,7 +21,6 @@ namespace WindowsParty.Repositories
                         new KeyValuePair<string, string>("password", password)
                     })
                 );
-
                 var result = response.Result.Content.ReadAsStringAsync().Result;
                 var deserializeObject = JsonConvert.DeserializeObject<AccessToken>(result);
                 return deserializeObject.Token;

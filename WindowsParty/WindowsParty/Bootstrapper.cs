@@ -6,7 +6,7 @@ using Unity;
 
 namespace WindowsParty
 {
-    class Bootstrapper : BootstrapperBase
+    public class Bootstrapper : BootstrapperBase
     {
         public Bootstrapper()
         {

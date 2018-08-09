@@ -11,15 +11,17 @@ namespace WindowsParty.ViewModels
         private string _password = "partyanimal";
 
         private readonly IAuthorizationService _authorizationService;
-        private readonly IServerService _serverService;
 
-        public LoginViewModel(IAuthorizationService authorizationService, IServerService serverService)
+        public LoginViewModel(IAuthorizationService authorizationService)
         {
             _authorizationService = authorizationService;
-            _serverService = serverService;
-            var accessToken = _authorizationService.GetAccessToken("tesonet", "partyanimal");
-            var servers = _serverService.GetServers(accessToken);
         }
+
+        public string GetAccessToken()
+        {
+            return _authorizationService.GetAccessToken("tesonet", "partyanimal");
+        }
+
         public string Username
         {
             get { return _username; }
