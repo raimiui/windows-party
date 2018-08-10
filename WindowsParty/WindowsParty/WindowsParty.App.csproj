@@ -101,7 +101,6 @@
     <Compile Include="UnityContainerFactory.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ServerViewModel.cs" />
-    <Compile Include="ViewModels\ServersViewModel.cs" />
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>

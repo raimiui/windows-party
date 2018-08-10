@@ -32,7 +32,7 @@
 
                 <!--Rows-->
                 <ScrollViewer x:Name="svServers" Height="605" Canvas.Top="60" Width="733">
-                    <ItemsControl ItemsSource="{Binding Servers}">
+                    <ItemsControl x:Name="Servers">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">

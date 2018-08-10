@@ -11,10 +11,6 @@ namespace WindowsParty
         public Bootstrapper()
         {
             Initialize();
-
-            //TODO: remove
-         //var logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType).Logger;
-            
         }
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)

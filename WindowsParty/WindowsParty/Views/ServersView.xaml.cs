@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using WindowsParty.ViewModels;
 
 namespace WindowsParty.Views
 {
@@ -12,7 +11,5 @@ namespace WindowsParty.Views
         {
             InitializeComponent();
         }
-
-        public string AccessToken { get; set; }
     }
 }

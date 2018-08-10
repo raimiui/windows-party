@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WindowsParty.IRepositories;
 using WindowsParty.IServices;
 using WindowsParty.Models;

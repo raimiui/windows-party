@@ -1,6 +1,5 @@
 ﻿using WindowsParty.IRepositories;
 using WindowsParty.IServices;
-using WindowsParty.Repositories;
 
 namespace WindowsParty.Services
 {
