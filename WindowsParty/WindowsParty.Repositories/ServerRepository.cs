@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using WindowsParty.IRepositories;
 using WindowsParty.Models;
+using Newtonsoft.Json;
 
 namespace WindowsParty.Repositories
 {
@@ -16,8 +17,7 @@ namespace WindowsParty.Repositories
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
                 var result = client.GetAsync("v1/servers").Result.Content.ReadAsStringAsync().Result;
 
-                //TODO: UNCOMMENT!!!
-                //return JsonConvert.DeserializeObject<IEnumerable<Server>>(result);
+                return JsonConvert.DeserializeObject<IEnumerable<Server>>(result);
 
                 return null;
                 //JsonConvert.DeserializeObject<IEnumerable<Server>>(

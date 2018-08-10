@@ -5,7 +5,7 @@ using log4net.Core;
 
 namespace WindowsParty.ViewModels
 {
-    public class LoginViewModel : Screen
+    public class LoginViewModel : Conductor<object>
     {
         private string _username = "tesonet";
         private string _password = "partyanimal";
@@ -15,11 +15,6 @@ namespace WindowsParty.ViewModels
         public LoginViewModel(IAuthorizationService authorizationService)
         {
             _authorizationService = authorizationService;
-        }
-
-        public string GetAccessToken()
-        {
-            return _authorizationService.GetAccessToken("tesonet", "partyanimal");
         }
 
         public string Username
@@ -40,6 +35,16 @@ namespace WindowsParty.ViewModels
                 _password = value;
                 NotifyOfPropertyChange(() => Password);
             }
+        }
+
+        public void LoadServersPage()
+        {
+            var accessToken = _authorizationService.GetAccessToken(Username, Password);
+
+            var serversViewModel = new ServersViewModel();
+            serversViewModel.LoadServers(accessToken);
+            (new WindowManager()).ShowWindow(serversViewModel);
+
         }
     }
 }

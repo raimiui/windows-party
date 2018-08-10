@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using WindowsParty.IServices;
 using WindowsParty.ViewModels;
 using Caliburn.Micro;
 
@@ -20,18 +21,25 @@ namespace WindowsParty.Views
 
         private void bg_btn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+
             var loginViewModel = (LoginViewModel) DataContext;
 
-            var serversView = new ServersView
-            {
-                AccessToken = loginViewModel.GetAccessToken(),
-                Width = this.Width,
-                Height = this.Height,
-                Top = this.Top,
-                Left = this.Left
-            };
+            loginViewModel.LoadServersPage();
+            return;
 
-            (new WindowManager()).ShowWindow(serversView);
+            //var serversView = new ServersView
+            //{
+            //    AccessToken = loginViewModel.GetAccessToken(),
+            //    Width = this.Width,
+            //    Height = this.Height,
+            //    Top = this.Top,
+            //    Left = this.Left
+            //};
+
+            //(new WindowManager()).ShowWindow(serversView);
+            //IEnumerable<KeyValuePair<string, object>>
+            
+
             //this.Hide();
             //serversView.Show();
         }
